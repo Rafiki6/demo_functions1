@@ -10,8 +10,9 @@ function displayWeekdayMottos() {
     console.log("Tackle it Tuesday!")
     console.log("Finish it Friday!")
    }
+   displayWeekdayMottos() 
     
-   displayWeekdayMottos();
+//    displayWeekdayMottos();
    // third exercise
 function favoritePlace(){
     console.log("I wolud love a Gorillars Park")
