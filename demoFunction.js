@@ -12,3 +12,8 @@ function displayWeekdayMottos() {
    }
     
    displayWeekdayMottos();
+   // third exercise
+function favoritePlace(){
+    console.log("I wolud love a Gorillars Park")
+}
+favoritePlace()
