@@ -3,26 +3,54 @@ function getSocSecTax(grosspay) {
     const sosTax = grosspay * 0.062;
     return sosTax;
 }
-let grosspay = 3564;
-let sosTax = getSocSecTax(grosspay);
-console.log("Social Security Tax: $" + sosTax.toFixed(2))
 
 // MEDICARE TAX
-function getMedicareTax(grosspays) {
+function getMedicareTax(grosspay) {
     const medicareTax = grosspay * 0.0145;
     return medicareTax;
 }
-let grosspays = 2350;
-let medicareTax = getMedicareTax(grosspays)
-console.log("Medicare  Tax: $" + medicareTax.toFixed(2))
+
+
 
 // FEDERAL TAX
-function getFederalTax(grossPayed, witholdingCode) {
+function getFederalTax(grosspay, witholdingCode) {
+    let rate = 0;
+    if(witholdingCode == 0){
+        rate = 0.23
+    }
+    else if(witholdingCode == 1){
+        rate = 0.21
+    }
+    else if(witholdingCode == 2){
+        rate = 0.195
+    }
+    else if(witholdingCode == 3){
+        rate = 0.185
+    }
+    else if(witholdingCode >=4){
+        rate = 0.18;
+        over = witholdingCode - 4;
+        rate = over * 0.005
+
+    }
+    return grosspay * rate
 
 }
-let taxrate = { 0: 0.23, 1: 0.21, 2: 0.195, 3: 0.185, 4: 0.18 };
-if (witholdingCode >= 0 && witholdingCode <= 3) {
-    
-    let federalWithholding = grossPayed * taxrate
-}
 
+let pay = 750;
+let code = 0;
+console.log("Social Security Tax: $" + getSocSecTax(pay).toFixed(2))
+console.log("Medicare Tax: $" + getMedicareTax(pay).toFixed(2))
+console.log("Federal Tax: $" + getFederalTax(pay,code ).toFixed(2))
+
+ pay = 1550;
+ code = 2;
+console.log("Social Security Tax: $" + getSocSecTax(pay).toFixed(2))
+console.log("Medicare Tax: $" + getMedicareTax(pay).toFixed(2))
+console.log("Federal Tax: $" + getFederalTax(pay,code ).toFixed(2))
+
+ pay = 1100;
+ code = 6;
+console.log("Social Security Tax: $" + getSocSecTax(pay).toFixed(2))
+console.log("Medicare Tax: $" + getMedicareTax(pay).toFixed(2))
+console.log("Federal Tax: $" + getFederalTax(pay,code ).toFixed(2))
